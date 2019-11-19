@@ -1,0 +1,8 @@
+function plotT2Map(T2Map,masks)
+removeMiddleMask = t
+for i = 1:5
+    if i = 3
+        continue
+    end
+end
+

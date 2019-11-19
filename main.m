@@ -15,7 +15,9 @@ if ~exist ('T2Map','var') %this takes some time, so skip it if it already exists
 end
 T2List = calculateAverageT2(T2Map,masks);
 booleanPlot = true; %change to false if u wanna skip plot
+plotT2Map(T2Map,masks);
 concentrations = [0,0.005,0.010,0.025,0.05]; %in M
-r2 = calculateRelaxivity(T2List,concentrations,booleanPlot);
+[r2, delta] = calculateRelaxivity(T2List,concentrations,booleanPlot);
+
 format short;
-fprintf('\n Calculated r_2 relaxativity of Cd calculated to be %f (M*ms)^-1. \n',r2);
+fprintf('\n Calculated r_2 relaxivity of C.A. calculated to be (%.2f +- %.2f)) L/(mmol*s). \n',r2,delta(2)-r2);
